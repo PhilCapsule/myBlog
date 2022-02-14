@@ -36,6 +36,12 @@ body {
     min-width: 250px;
 }
 
+#imagemeteo {
+    width: 550px;
+    height: 350px;
+    
+}
+
 /* .baniereHome {
     border: 1px solid ;
 } */
