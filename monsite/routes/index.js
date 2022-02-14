@@ -22,9 +22,9 @@ router.get('/meteo', function(req,res,next){
   res.render('meteo')
 })
 
-// voir if redirect
-router.post('/log-in', function(req,res,next){
-  res.render('log-in')
+// voir if redirect  et POST 
+router.get('/login', function(req,res,next){
+  res.render('login');
 });
 
 
