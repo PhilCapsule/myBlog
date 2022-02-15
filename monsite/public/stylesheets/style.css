@@ -44,10 +44,17 @@ body {
 
 .footer{
     display: flex;
-    margin-top: 20px;
+    justify-content: center;
+    margin-top: 150px;
     
 }
 
+
+/* message all site  */
+.message {
+    display: flex;
+    justify-content: center;
+}
 
 
 
