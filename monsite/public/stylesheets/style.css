@@ -1,7 +1,6 @@
 
 
 body {
-    
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     background-color: rgb(218, 218, 155);
 }
@@ -42,11 +41,12 @@ body {
     
 }
 
-/* .baniereHome {
-    border: 1px solid ;
-} */
 
-
+.footer{
+    display: flex;
+    margin-top: 20px;
+    
+}
 
 
 
