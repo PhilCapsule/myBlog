@@ -7,6 +7,24 @@ body {
 }
 
 
+/* page login background img   */
+/* .home {
+    background-image: url('../images/weather.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+    color: #FFFFFF;
+    text-shadow: 1px 1px 1px black;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  } */
+
+
 /* erreur404 image */
 .image404{
     display: flex;
@@ -54,14 +72,21 @@ body {
 
 
 
+/* ------------------- */
+ /* page meteo image   */
 .mapMeteo{
     display: flex;
-    background-color: rgb(192, 135, 245);
     margin: 0px;
 }
 
 #mapmeteo1 {
     width: 670px;
+    border-radius: 3px;
 }
 
+#titleMeteo{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
 
+/* ------------------  */

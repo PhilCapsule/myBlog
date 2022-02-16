@@ -67,15 +67,39 @@
     </nav>
     </div>
 
+
+        <!-- map weather   -->
     <main class="container-fluid">
-        <div class="row mapMeteo">
+        <div class="row">
             <div class="d-flex justify-content-center">
-                <img id="mapmeteo1" src="images/map.png" alt="" srcset="">    
+                <span id="titleMeteo">METEO</span>
             </div>
         </div>
+        <div class="row mapMeteo">
+            <div class="d-flex justify-content-center">
+                <img id="mapmeteo1" src="images/map.png" alt="map weather" srcset="">    
+            </div>
+        </div>
+
+
+
     </main>
+    <!-- col-12 col-lg-6 col-lg-6  -->
+    <div class="row">
+        <div class="d-flex justify-content-center">
+            <!--   INPUT  Enter city name en MODE "POST" -->
+            <form action="/add-city" method="POST">
+                <div class="input-group mb-3">
+                    <input name="newcity" type="text" class="form-control" placeholder="Enter city name"  aria-label="New city name">
+                    <div class="input-group-append">
+                        <button class="btn btn-warning" type="submit" id="button-addon2">Add</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 
-
+    
 
 
 
