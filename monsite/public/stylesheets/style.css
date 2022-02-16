@@ -7,26 +7,6 @@ body {
 }
 
 
-
-
-/* imageMap   */
-.imageMeteo{
-    display: flex;
-    justify-content: center;
-}
-
-.map{
-    width: 380px;
-}
-
-.banniere {
-    display: flex;
-    flex-direction: row;
-}
-
-
-
-
 /* erreur404 image */
 .image404{
     display: flex;
@@ -48,11 +28,11 @@ body {
 }
 
 
-/* message all site  */
-/* .message {
-    display: flex;
-    justify-content: center;
-} */
+.message-1{
+    background-color: rgba(181, 72, 72, 0.708);
+    border-radius: 3px;
+    margin: 15px 0px 15px 0px ;
+}
 
 
 /* index page  */
@@ -64,6 +44,7 @@ body {
 .navbar{
     display: flex;
     justify-content: start;
+    border-radius: 3px;
 }
 
 .inputHome{
@@ -72,5 +53,15 @@ body {
 }
 
 
+
+.mapMeteo{
+    display: flex;
+    background-color: rgb(192, 135, 245);
+    margin: 0px;
+}
+
+#mapmeteo1 {
+    width: 670px;
+}
 
 
