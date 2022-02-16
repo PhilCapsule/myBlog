@@ -3,26 +3,25 @@
 body {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     background-color: rgb(218, 218, 155);
+    padding: 5px;
 }
 
 
-/* site construction image  */
-/* .container-centre{
+
+
+/* imageMap   */
+.imageMeteo{
     display: flex;
     justify-content: center;
-    align-items: center;
-} */
-
-.img-fluid {
-    margin-top: 250px;
-    width: 300px;
-    height: 300px;
-   
 }
 
-.imageSite {
+.map{
+    width: 380px;
+}
+
+.banniere {
     display: flex;
-    justify-content: center;
+    flex-direction: row;
 }
 
 
@@ -40,12 +39,6 @@ body {
     min-width: 250px;
 }
 
-#imagemeteo {
-    width: 550px;
-    height: 350px;
-    
-}
-
 
 .footer{
     display: flex;
@@ -56,11 +49,27 @@ body {
 
 
 /* message all site  */
-.message {
+/* .message {
+    display: flex;
+    justify-content: center;
+} */
+
+
+/* index page  */
+.page{
     display: flex;
     justify-content: center;
 }
 
+.navbar{
+    display: flex;
+    justify-content: start;
+}
+
+.inputHome{
+    display: flex;
+    justify-content: end;
+}
 
 
 
