@@ -57,16 +57,24 @@ router.post('/add-city', function(req,res,next){
         cityList.push({
             name: req.body.newcity,
             desc: "couvert",
-            img:"/images/picto-1",
+            img:"/images/picto-1.png",
             temp_min: 15,
             temp_max: 20
         })
 
     }
 
-
     res.render('meteo', {cityList});
 });
+
+// DELETE -------------
+
+router.get('delete-city', function(req,res,next){
+    // console.log(req.query);
+    cityList.splice(req.query.position, 1)
+    res.render('meteo', {cityList})
+})
+
 
 module.exports = router;
 

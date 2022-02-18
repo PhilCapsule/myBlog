@@ -8,13 +8,14 @@ body {
 
 
 /* page login background img   */
-/* .home {
-    background-image: url('../images/weather.jpg');
+/* background a changer  */
+.home {
+    background-image: url('/images/weather.jpg');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    
-    color: #FFFFFF;
+    border: 2px solid black;      /*border*/ 
+    color: #f2f0f0;
     text-shadow: 1px 1px 1px black;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -22,7 +23,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-  } */
+  }
 
 
 /* erreur404 image */
