@@ -41,6 +41,33 @@ router.get('/login', function(req,res,next){
 });
 
 
+// Add city 
+router.post('/add-city', function(req,res,next){
+
+    var existDeja = false;
+
+    for(var i = 0; i<cityList.length;i++){
+        if(req.body.newcity.toLowerCase() == cityList[i].name.toLowerCase()){
+            existDeja = true;
+        }
+    }
+
+    // If don't exist
+    if(existDeja == false){
+        cityList.push({
+            name: req.body.newcity,
+            desc: "couvert",
+            img:"/images/picto-1",
+            temp_min: 15,
+            temp_max: 20
+        })
+
+    }
+
+
+    res.render('meteo', {cityList});
+});
+
 module.exports = router;
 
 
