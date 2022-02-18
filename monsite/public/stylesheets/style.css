@@ -82,11 +82,13 @@ body {
 #mapmeteo1 {
     width: 670px;
     border-radius: 3px;
+    margin-bottom: 25px;
 }
 
 #titleMeteo{
     margin-top: 20px;
     margin-bottom: 20px;
+
 }
 
 /* ------------------  */
@@ -101,7 +103,12 @@ body {
 
 /* ------------------  */
 
+#button-addon2{
+    margin: 0 18px 0 18px;
+}
 
-
-
+/* .form-control {
+    background-color: rgb(89, 165, 232);
+    border-radius: 3px 3px 3px 3px;
+} */
 
