@@ -32,9 +32,11 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
+
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
+
           <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
             <a class="navbar-brand" href="#">icone</a>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -71,7 +73,7 @@
                 <h2> Login </h2> <!-- change title -->
             </div>
 
-            <div class="col-12 text-center">
+            <div class="col-12 text-center ">
                 <div class="formArea">
                     <h4 class="titleform"> Sign Up</h4>
 
@@ -92,15 +94,39 @@
                             <input type="text" class="form-control" placeholder="Enter username" >
                         </div>
 
-                        <button type="submit" class="btn btn-info">Submit</button>
+                        <button id="btnsubmit" type="submit" class="btn btn-info">Submit</button>
 
                     </form>
+                    <!-- /form gauche  -->
+
                 </div>
+                <!-- /formArea  --------------------------------------------  -->
+
+                <!-- sign in cote droit  -->
+                <div class="col-12 text-center">
+                    <div class="formArea">
+                        <h4 class="titleForm"> Sign in</h4>
+
+                        <form action="/sign-in" method="post">
+                            <div class="form-group">
+                                <label for="exampleInputEmail">Email Adress</label>
+                                <input name="email" type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputPassword">Password</label>
+                                <input name="email" type="email" class="form-control" aria-describedby="emailHelp" placeholder="Password">
+                            </div>
+
+                            <button type="submit" class="btn btn-info">Submit</button>
+                        </form>
+                        <!-- form droit -->
+
+                    </div> <!-- formArea droit-->
+                </div> <!-- class col_12-->
             </div>
-
-
-        </div>
-    </div>
+        </div> <!-- home / row-->
+    </div> <!-- home -->
     
 
       
