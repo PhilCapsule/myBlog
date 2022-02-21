@@ -82,9 +82,12 @@ body {
 }
 
 #mapmeteo1 {
-    width: 670px;
+   
+    width: 800px;
     border-radius: 3px;
     margin-bottom: 25px;
+    padding: 0px;
+  
 }
 
 #titleMeteo{
@@ -112,6 +115,12 @@ body {
 #btnsubmit {
     margin-top: 10px;
 }
+
+#btnsubmit2{
+    margin-top: 70px;
+}
+
+
 
 /* .form-control {
     background-color: rgb(89, 165, 232);

@@ -87,45 +87,57 @@
 
                         <!-- btn update  -->
                         <div class="d-flex justify-content-center">
-                            <a class="update-cities" href="/update-cities">Update <i class="fas fa-sync-alt"></i></a>
+                            <button class="btn btn-warning"><a class="update-cities" href="/update-cities">Update <i class="fas fa-sync-alt"></i></a></button>
                         </div>
 
                     </div>
                 </form>
+
             </div>
+
+
+
+
+            <div class="container">
+
+                <div class="row">
+                    <div class="d-flex justify-content-center ">
+                        <!-- If list city empty  -->
+                        <% if(cityList.length == 0){%>
+                            <span class="empty">Pas de ville sélectionné</span>
+                            <%}%>
+                        <!-- /list city empty  -->
+                            
+                            <ul class="list-group" >
+                                <% for(let i=0; i<cityList.length;i++){ %>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        <%= cityList[i].name %>
+                                        <div>
+                                            <%= cityList[i].desc %>
+                                            <img src="<%= cityList[i].img %>">
+                                            <span class="badge bg-warning rounded-pill"><%= cityList[i].temp_min %> C° </span>
+                                            <span class="badge bg-secondary rounded-pill"><%= cityList[i].temp_max %> C° </span>
+                                        </div>
+                                        <!-- PICTOGRAMME -->
+                                        <a href="/delete-city?position=<%=i%>"><i class="deletepicto far fa-times-circle"></i></a>                                   
+                                 <%}%>
+        
+                                    </li>
+                            </ul>
+                        
+                                    
+                    </div> 
+                </div>
+
+            </div>
+
+
+
+
         </div>
 
         <!-- /container-fluid  -->
         <!-- col-12 col-lg-6 col-lg-6  -->
-        
-        <div class="col-12 col-lg-6">
-            
-                <!-- If list city empty  -->
-                <% if(cityList.length == 0){%>
-                    <span class="empty">Pas de ville sélectionné</span>
-                    <%}%>
-                <!-- /list city empty  -->
-                    
-                    <ul class="list-group" >
-                        <% for(let i=0; i<cityList.length;i++){ %>
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                <%= cityList[i].name %>
-                                <div>
-                                    <%= cityList[i].desc %>
-                                    <img src="<%= cityList[i].img %>">
-                                    <span class="badge bg-warning rounded-pill"><%= cityList[i].temp_min %> C° </span>
-                                    <span class="badge bg-secondary rounded-pill"><%= cityList[i].temp_max %> C° </span>
-                                </div>
-                                <!-- PICTOGRAMME -->
-                                <a href="/delete-city?position=<%=i%>"><i class="deletepicto far fa-times-circle"></i></a>
-                                
-                                
-                         <%}%>
-
-                            </li>
-                    </ul>
-                        
-                    </div> 
                     <!-- /-row  -->
                     
             
