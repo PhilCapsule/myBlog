@@ -14,7 +14,7 @@ body {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    border: 2px solid black;      /*border*/ 
+    /* border: 2px solid black;      border  */
     color: #f2f0f0;
     text-shadow: 1px 1px 1px black;
     margin-top: 35px;
