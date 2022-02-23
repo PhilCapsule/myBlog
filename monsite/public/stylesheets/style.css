@@ -78,6 +78,7 @@ body {
  /* page meteo image   */
 .mapMeteo{
     display: flex;
+    /* justify-content: center; */
     margin: 0px;
 }
 

@@ -67,9 +67,16 @@ router.post('/add-city', function(req,res,next){
     res.render('meteo', {cityList});
 });
 
+// UPDATE 
+router.get('/update-cities', function(req,res,next){
+    res.render('meteo', {cityList})
+})
+
+
+
 // DELETE -------------
 
-router.get('delete-city', function(req,res,next){
+router.get('/delete-city', function(req,res,next){
     // console.log(req.query);
     cityList.splice(req.query.position, 1)
     res.render('meteo', {cityList})
