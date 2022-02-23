@@ -76,11 +76,11 @@ body {
 
 /* ------------------- */
  /* page meteo image   */
-.mapMeteo{
+/* .mapMeteo{
     display: flex;
-    /* justify-content: center; */
-    margin: 0px;
-}
+    /* justify-content: center; 
+    /* margin: 0px;
+} */ 
 
 #mapmeteo1 {
    
