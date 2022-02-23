@@ -1,5 +1,8 @@
+const { query } = require('express');
 var express = require('express');
 var router = express.Router();
+
+var request = require('sync-request');
 
 // /fakeDB 
 //add humidité 
@@ -43,6 +46,12 @@ router.get('/login', function(req,res,next){
 
 // Add city 
 router.post('/add-city', function(req,res,next){
+    // console.log("bonne route");
+
+    var data = request("GET", `https://api.openweathermap.org/data/2.5/weather?q=${req.body.newcity}&lang=fr&units=metric&appid=578e4c04f9050d4e61bd79ac5f3c583e`)
+    var dataAPI = JSON.parse(data.body)
+
+    // console.log(dataAPI);
 
     var existDeja = false;
 
@@ -53,15 +62,14 @@ router.post('/add-city', function(req,res,next){
     }
 
     // If don't exist
-    if(existDeja == false){
+    if(existDeja == false && dataAPI.name){
         cityList.push({
             name: req.body.newcity,
-            desc: "couvert",
-            img:"/images/picto-1.png",
-            temp_min: 15,
-            temp_max: 20
+            desc: dataAPI.weather[0].description,
+            img: "http://openweathermap.org/img/wn/"+dataAPI.weather[0].icon+".png",
+            temp_min: dataAPI.main.temp_min,
+            temp_max: dataAPI.main.temp_max,
         })
-
     }
 
     res.render('meteo', {cityList});
