@@ -3,9 +3,9 @@ var express = require('express');
 var router = express.Router();
 
 var request = require('sync-request');
+const { update } = require('./bdd');
 
 var cityModel = require('./bdd')
-
 
 
 // /fakeDB 
@@ -13,7 +13,6 @@ var cityModel = require('./bdd')
 // var cityList = [
 
 // ]
-
 
 
 /* GET home page. */
@@ -35,14 +34,14 @@ router.get('/voyager', function(req,res,next){
   res.render('voyager')
 });
 
+
 router.get('/meteo', async function(req,res,next){
 
   var cityList = await cityModel.find();
-
   res.render('meteo', {cityList})
 })
 
-// voir if redirect  et POST 
+// voir if redirect et POST 
 router.get('/login', function(req,res,next){
   res.render('login');
 });
@@ -79,8 +78,27 @@ router.post('/add-city', async function(req,res,next){
     res.render('meteo', {cityList});
 });
 
-// UPDATE 
-router.get('/update-cities', function(req,res,next){
+// UPDATE do call BDD
+router.get('/update-cities', async function(req,res,next){
+    var cityList = await cityModel.find();
+
+    for(var i = 0; i<cityList.length; i++){
+        var data = request("GET", `https://api.openweathermap.org/data/2.5/weather?q=${cityList[i].name}&lang=fr&units=metric&appid=578e4c04f9050d4e61bd79ac5f3c583e`)
+        var dataAPI = JSON.parse(data.body)
+
+        await cityModel.updateOne({
+            _id: cityList[i].id
+        },{
+            name: req.body.newcity,
+            desc: dataAPI.weather[0].description,
+            img: "http://openweathermap.org/img/wn/"+dataAPI.weather[0].icon+".png",
+            temp_min: dataAPI.main.temp_min,
+            temp_max: dataAPI.main.temp_max,
+        })
+
+    }
+
+
     res.render('meteo', {cityList})
 })
 
