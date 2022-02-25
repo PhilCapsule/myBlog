@@ -1,5 +1,6 @@
 const { query } = require('express');
 var express = require('express');
+const res = require('express/lib/response');
 var router = express.Router();
 
 var request = require('sync-request');
@@ -12,6 +13,17 @@ var cityModel = require('../models/cities')
 router.get('/', function(req, res, next) {
   res.render('login');
 });
+
+
+// SIGN-IN 
+router.post('/sign-up', function(req,res,next){
+    console.log(req.query);
+
+    res.redirect('meteo')
+});
+
+
+
 
 
 router.get('/boutique', function(req, res, next){
