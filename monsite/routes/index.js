@@ -17,7 +17,7 @@ var cityModel = require('./bdd')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index');
+  res.render('login');
 });
 
 
@@ -40,11 +40,6 @@ router.get('/meteo', async function(req,res,next){
   var cityList = await cityModel.find();
   res.render('meteo', {cityList})
 })
-
-// voir if redirect et POST 
-router.get('/login', function(req,res,next){
-  res.render('login');
-});
 
 
 // Add city 
@@ -110,7 +105,7 @@ router.get('/delete-city', async function(req,res,next){
     // console.log(req.query);
 
     await cityModel.deleteOne({
-        id: req.query.id
+        _id: req.query.id
     })
     var cityList = await cityModel.find(); 
     res.render('meteo', {cityList})

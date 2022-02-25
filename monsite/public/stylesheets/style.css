@@ -121,7 +121,9 @@ body {
     margin-top: 70px;
 }
 
-
+#map { 
+    height: 180px; 
+}
 
 /* .form-control {
     background-color: rgb(89, 165, 232);
