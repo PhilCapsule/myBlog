@@ -89,7 +89,7 @@ router.get('/update-cities', async function(req,res,next){
         await cityModel.updateOne({
             _id: cityList[i].id
         },{
-            name: req.body.newcity,
+            name: cityList[i].name,
             desc: dataAPI.weather[0].description,
             img: "http://openweathermap.org/img/wn/"+dataAPI.weather[0].icon+".png",
             temp_min: dataAPI.main.temp_min,
@@ -98,8 +98,8 @@ router.get('/update-cities', async function(req,res,next){
 
     }
 
-
-    res.render('meteo', {cityList})
+    cityList = await cityModel.find();
+    res.render('meteo', {cityList});
 })
 
 

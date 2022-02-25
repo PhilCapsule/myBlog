@@ -23,5 +23,4 @@ var citySchema = mongoose.Schema({
 })
 
 var cityModel = mongoose.model('cities', citySchema)  
-
 module.exports = cityModel; 

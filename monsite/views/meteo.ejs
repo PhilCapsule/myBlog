@@ -62,7 +62,7 @@
 
 
         <!-- map weather   -->
-    <main class="container-fluid">
+    <div class="container-fluid">
         <div class="row"> <!-- msg meteo -->
             <div class="d-flex justify-content-center">
                 <span id="titleMeteo">METEO</span>
@@ -73,8 +73,8 @@
                 <img id="mapmeteo1" src="images/map.png" alt="map weather" srcset="">    
             </div>
         </div>
-    </div>
-    <!-- d-flex  -->
+    
+        <!-- d-flex  -->
 
         <div class="row">
             <div class="d-flex justify-content-center">
@@ -95,56 +95,44 @@
                 </form>
 
             </div>
-
-
-            <div class="row">
-                <div class="d-flex justify-content-center col-lg-12 ">
-                    <!-- If list city empty  -->
-                    <% if(cityList.length == 0){%>
-                        <span class="empty">Pas de ville sélectionné</span>
-                        <%}%>
-                    <!-- /list city empty  -->
-
-                        
-                        <ul class="list-group" >
-                            <% for(let i=0; i<cityList.length;i++){ %>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    <%= cityList[i].name %>
-                                    <div>
-                                        <%= cityList[i].desc %>
-                                        <img src="<%= cityList[i].img %>">
-                                        <span class="badge bg-warning rounded-pill"><%= cityList[i].temp_min %> C° </span>
-                                        <span class="badge bg-secondary rounded-pill"><%= cityList[i].temp_max %> C° </span>
-                                    </div>
-                                    <!-- PICTOGRAMME -->
-                                    <a href="/delete-city?id=<%=cityList[i].id%>"><i class="deletepicto far fa-times-circle"></i></a>                                   
-                             <%}%>
-    
-                                </li>
-                        </ul>
-                    
-                                
-                </div> 
-            </div>
-
-
-
-
         </div>
 
-        <!-- /container-fluid  -->
-        <!-- col-12 col-lg-6 col-lg-6  -->
-                    <!-- /-row  -->
-                    
-            
-                
-    </main>
+
+        <div class="row">
+            <div class="d-flex justify-content-center col-lg-12  ">
+                <!-- If list city empty  -->
+                 <% if(cityList.length == 0){%>
+                    <span class="empty">Pas de ville sélectionné</span>
+                    <%}%>
+                <!-- /list city empty  -->
+
+                        
+                    <ul class="list-group" >
+                        <% for(let i=0; i<cityList.length;i++){ %>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <%= cityList[i].name %>
+                                <div>
+                                    <%= cityList[i].desc %>
+                                    <img src="<%= cityList[i].img %>">
+                                    <span class="badge bg-warning rounded-pill"><%= cityList[i].temp_min %> C° </span>
+                                    <span class="badge bg-secondary rounded-pill"><%= cityList[i].temp_max %> C° </span>
+                                </div>
+                                <!-- PICTOGRAMME -->
+                                <a href="/delete-city?id=<%=cityList[i].id%>"><i class="deletepicto far fa-times-circle"></i></a>                                   
+                        <%}%>
     
+                            </li>
+                    </ul>
+                    
+                                
+            </div> 
+        </div>
 
 
-
-
-
+        <!-- /container-fluid  -->
+   
+    </div>
+    
 
     
     <!-- <div class="row">
@@ -167,8 +155,3 @@
 
 </html>
 
-<!-- <div class="col-lg-12 align-items-center">
-    <div class="website">
-        <img class="img-fluid-meteo" src="./images/PikPng.com_iatse-png_5351241.png" alt="logo construction">
-    </div>
-</div> -->
