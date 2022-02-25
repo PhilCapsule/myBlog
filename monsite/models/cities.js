@@ -1,3 +1,5 @@
+var mongoose = require('./connection')
+
 
 var citySchema = mongoose.Schema({
     name: String,

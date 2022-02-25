@@ -3,16 +3,9 @@ var express = require('express');
 var router = express.Router();
 
 var request = require('sync-request');
-const { update } = require('./bdd');
+// const { update } = require('./bdd');
 
-var cityModel = require('./bdd')
-
-
-// /fakeDB 
-//add humidité 
-// var cityList = [
-
-// ]
+var cityModel = require('../models/cities')
 
 
 /* GET home page. */
@@ -20,11 +13,6 @@ router.get('/', function(req, res, next) {
   res.render('login');
 });
 
-
-// add btn for path 
-// router.get('/erreur404', function(req, res, next){
-//   res.render('erreur');
-// });
 
 router.get('/boutique', function(req, res, next){
   res.render('boutique')
