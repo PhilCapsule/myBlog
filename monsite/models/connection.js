@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 
 var options = {
     connectTimeoutMS: 5000,
-    useUnifiedTopology: true,
+    useUnifiedTopology : true,
     useNewUrlParser: true,
 }
 
@@ -12,6 +12,6 @@ mongoose.connect('mongodb+srv://wesler013:oVe7mZIprm0xkpQ6@cluster0.klocy.mongod
     options,
     function(err){
         console.log("erreur ? : => " , err);
-})
+    }
+)
 
-module.exports = mongoose;

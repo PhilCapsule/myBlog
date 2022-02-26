@@ -1,4 +1,4 @@
-var mongoose = require('./connection')
+var mongoose = require('mongoose')
 
 
 var userSchema = mongoose.Schema({
@@ -9,4 +9,5 @@ var userSchema = mongoose.Schema({
 })
 
 var userModel = mongoose.model('users', userSchema)  
+
 module.exports = userModel; 

@@ -1,12 +1,12 @@
-const { query } = require('express');
 var express = require('express');
-const res = require('express/lib/response');
 var router = express.Router();
-
 var request = require('sync-request');
-// const { update } = require('./bdd');
 
 var cityModel = require('../models/cities')
+
+var userModel = require('../models/users')
+
+
 
 
 /* GET home page. */
@@ -15,12 +15,68 @@ router.get('/', function(req, res, next) {
 });
 
 
-// SIGN-IN 
-router.post('/sign-up', function(req,res,next){
-    console.log(req.query);
 
-    res.redirect('meteo')
+// SIGN-UP 
+router.post('/sign-up', async function(req,res,next){
+
+    var searchUser = await userModel.findOne({
+        email: req.body.emailFront
+    })
+
+    if(!searchUser){
+        var newUser = new userModel({
+            username: req.body.usernameFront,
+            email: req.body.emailFront,
+            password: req.body.passwordFront,
+        })
+
+        var newUserSave = await newUser.save();
+
+        req.session.user = {
+            name: newUserSave.username,
+            id: newUserSave._id,
+        }
+
+        console.log(req.session.user)
+
+        res.redirect('/meteo')
+
+    }else {
+        res.redirect('/')
+    }
+
 });
+
+
+
+// // SIGN-IN
+router.post('/sign-in', async function(req,res,next){
+
+    var searchUser = await userModel.findOne({
+      email: req.body.emailFront,
+      password: req.body.passwordFront
+    })
+  
+    if(searchUser != null){
+      req.session.user = {
+        name: searchUser.username,
+        id: searchUser._id
+      }
+      res.redirect('/meteo')
+    } else {
+      res.render('login')
+    }
+
+});
+
+
+// LOGOUT 
+router.get('/logout', function(req,res,next){
+    req.session.user = null;
+    res.redirect('/')
+})
+
+
 
 
 
@@ -37,9 +93,15 @@ router.get('/voyager', function(req,res,next){
 
 router.get('/meteo', async function(req,res,next){
 
-  var cityList = await cityModel.find();
-  res.render('meteo', {cityList})
-})
+  if(req.session.user == null){
+      res.redirect('/')
+  }else{
+      var cityList = await cityModel.find();
+      res.render('meteo', {cityList})
+
+  }
+
+});
 
 
 // Add city 
@@ -49,11 +111,11 @@ router.post('/add-city', async function(req,res,next){
     var data = request("GET", `https://api.openweathermap.org/data/2.5/weather?q=${req.body.newcity}&lang=fr&units=metric&appid=578e4c04f9050d4e61bd79ac5f3c583e`)
     var dataAPI = JSON.parse(data.body)
 
+    console.log(dataAPI);
+
     var existDeja = await cityModel.findOne({
         name: req.body.newcity.toLowerCase()
     }); 
-
-    // console.log(dataAPI);
 
     // If don't exist
     if(existDeja == null && dataAPI.name){
@@ -64,6 +126,8 @@ router.post('/add-city', async function(req,res,next){
             img: "http://openweathermap.org/img/wn/"+dataAPI.weather[0].icon+".png",
             temp_min: dataAPI.main.temp_min,
             temp_max: dataAPI.main.temp_max, 
+            lon: dataAPI.coord.lon,
+            lat: dataAPI.coord.lat,
         })
 
         await newCity.save(); 
@@ -72,6 +136,8 @@ router.post('/add-city', async function(req,res,next){
     cityList = await cityModel.find();
     res.render('meteo', {cityList});
 });
+
+
 
 // UPDATE do call BDD
 router.get('/update-cities', async function(req,res,next){
@@ -93,9 +159,9 @@ router.get('/update-cities', async function(req,res,next){
 
     }
 
-    cityList = await cityModel.find();
+    var cityList = await cityModel.find();
     res.render('meteo', {cityList});
-})
+});
 
 
 
@@ -109,11 +175,11 @@ router.get('/delete-city', async function(req,res,next){
     })
     var cityList = await cityModel.find(); 
     res.render('meteo', {cityList})
-})
+});
 
 
 
-// API Sign in : up 
+
 
 
 module.exports = router;
