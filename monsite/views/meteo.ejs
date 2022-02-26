@@ -112,15 +112,22 @@
 
                         
                     <ul class="list-group" >
+
                         <% for(let i=0; i<cityList.length;i++){ %>
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                <%= cityList[i].name %>
+                            <li class="list-group-item d-flex justify-content-between align-items-center"
+                                data-lon="<%= cityList[i].lon %>"
+                                data-lat="<%= cityList[i].lat %>"
+                                data-cityname="<%= cityList[i].name %>"
+                                
+                            >
+                                <%=cityList[i].name%>
                                 <div>
                                     <%= cityList[i].desc %>
                                     <img src="<%= cityList[i].img %>">
                                     <span class="badge bg-warning rounded-pill"><%= cityList[i].temp_min %> C° </span>
                                     <span class="badge bg-secondary rounded-pill"><%= cityList[i].temp_max %> C° </span>
                                 </div>
+
                                 <!-- PICTOGRAMME -->
                                 <a href="/delete-city?id=<%=cityList[i].id%>"><i class="deletepicto far fa-times-circle"></i></a>                                   
                         <%}%>
@@ -136,16 +143,6 @@
         <!-- /container-fluid  -->
    
     </div>
-    
-
-    
-    <!-- <div class="row">
-        <div class="footer col-lg-12 align-items-center">
-            <footer class="sticky-footer">                  
-                <span>Copyright ©Phil013</span>                                     
-            </footer>
-        </div>
-    </div> -->
     
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js" integrity="sha512-Tn2m0TIpgVyTzzvmxLNuqbSJH3JP8jm+Cy3hvHrW7ndTDcJ1w5mBiksqDBb8GpE2ksktFvDB/ykZ0mDpsZj20w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
