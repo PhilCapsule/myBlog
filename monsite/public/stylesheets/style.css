@@ -122,8 +122,9 @@ body {
     margin-top: 70px;
 }
 
-#mapid { 
+#map { 
     height: 400px; 
+    border: 2px solid black;
 }
 
 /* .form-control {
